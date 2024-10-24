@@ -85,6 +85,10 @@ const initForm = () => {
   }
 }
 
+const scrollToTop = () => {
+  window.scrollTo(0, 0)
+}
+
 const onSubmit = async () => {
   // validation
   if (!isValid.value) return
@@ -99,6 +103,8 @@ const onSubmit = async () => {
       })
     } else {
       await postsStore.createPost(form.value as PostCreatePayload)
+
+      scrollToTop()
     }
 
     hideModal()
